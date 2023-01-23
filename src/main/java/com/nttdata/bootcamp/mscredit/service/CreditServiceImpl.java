@@ -43,7 +43,7 @@ public class CreditServiceImpl implements CreditService{
     }
 
     @Override
-    public Mono<Credit> deleteAccount(Integer customerId, Integer creditId) {
+    public Mono<Credit> deleteCredit(Integer customerId, Integer creditId) {
         return creditRepository.findById(creditId)
                 .flatMap(credit -> creditRepository.delete(credit).then(Mono.just(credit)));
     }

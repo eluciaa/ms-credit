@@ -33,8 +33,8 @@ public class CreditController {
      * @param id
      * @return
      */
-    @GetMapping ("/credit/{id}")
-    public Mono<ResponseEntity<Credit>> getAccountById(@PathVariable Integer id){
+    @GetMapping ("/customer/{id}")
+    public Mono<ResponseEntity<Credit>> getCreditById(@PathVariable Integer id){
         return creditService.getCreditById(id).map(response -> ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)
                         .body(response))
                 .defaultIfEmpty(ResponseEntity.badRequest().build());
@@ -58,7 +58,7 @@ public class CreditController {
      * @return
      */
     @PutMapping
-    public Mono<Credit> updateAccount(@RequestBody Credit credit){
+    public Mono<Credit> updateCredit(@RequestBody Credit credit){
         return creditService.updateCredit(credit);
     }
 
@@ -68,8 +68,8 @@ public class CreditController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Mono<Credit> deleteAccount(@PathVariable Integer id, @PathVariable Integer clientId){
-        return creditService.deleteAccount(id, clientId);
+    public Mono<Credit> deleteCredit(@PathVariable Integer id, @PathVariable Integer clientId){
+        return creditService.deleteCredit(id, clientId);
     }
 
 }
