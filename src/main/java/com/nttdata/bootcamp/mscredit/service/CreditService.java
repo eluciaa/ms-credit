@@ -10,6 +10,6 @@ public interface CreditService {
     Mono<Credit> getCreditById(Integer creditId);
     Mono<Credit> saveCredit(Credit credit);
     Mono<Credit> updateCredit(Credit credit);
-    Mono<Credit> deleteCredit(Integer customerId, Integer creditId);
+    Mono<Credit> deleteCredit(Integer creditId);
 
 }

@@ -48,7 +48,7 @@ public class CreditController {
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<Credit> saveAccount(@RequestBody Credit credit){
+    public Mono<Credit> saveCredit(@RequestBody Credit credit){
         return creditService.saveCredit(credit);
     }
 
@@ -68,8 +68,8 @@ public class CreditController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public Mono<Credit> deleteCredit(@PathVariable Integer id, @PathVariable Integer clientId){
-        return creditService.deleteCredit(id, clientId);
+    public Mono<Credit> deleteCredit(@PathVariable Integer id){
+        return creditService.deleteCredit(id);
     }
 
 }
