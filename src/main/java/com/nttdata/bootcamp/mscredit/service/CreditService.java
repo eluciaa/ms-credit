@@ -11,5 +11,6 @@ public interface CreditService {
     Mono<Credit> saveCredit(Credit credit);
     Mono<Credit> updateCredit(Credit credit);
     Mono<Credit> deleteCredit(Integer creditId);
+	Flux<Credit> getCreditByCustomerId(String id);
 
 }

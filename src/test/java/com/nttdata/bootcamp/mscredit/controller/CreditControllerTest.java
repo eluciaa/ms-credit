@@ -29,8 +29,8 @@ public class CreditControllerTest {
     @Test
     void getAll(){
         Flux<Credit> creditFlux = Flux.just(new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO"), new Credit(2, "3401-3904-3535-3775", 150000F, "20/08/2025",
-                        0F, "PRESTAMO"));
+                250.20F, "1", "TARJETA DE CREDITO"), new Credit(2, "3401-3904-3535-3775", 150000F, "20/08/2025",
+                        0F, "1", "PRESTAMO"));
 
          when(creditService.getAll()).thenReturn(creditFlux);
 
@@ -45,19 +45,19 @@ public class CreditControllerTest {
         StepVerifier.create(responseBody)
                 .expectSubscription()
                 .expectNext(new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                        250.20F, "TARJETA DE CREDITO"))
+                        250.20F, "1", "TARJETA DE CREDITO"))
                 .expectNext(new Credit(2, "3401-3904-3535-3775", 150000F, "20/08/2025",
-                        0F, "PRESTAMO"))
+                        0F, "1", "PRESTAMO"))
                 .verifyComplete();
     }
 
     @Test
     void getCreditById(){
         Credit credit = new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO");
+                250.20F, "1", "TARJETA DE CREDITO");
 
         Mono<Credit> creditMono = Mono.just(new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO"));
+                250.20F, "1", "TARJETA DE CREDITO"));
 
         when(creditService.getCreditById(credit.getId())).thenReturn(creditMono);
 
@@ -79,10 +79,10 @@ public class CreditControllerTest {
     void saveCredit(){
 
         Credit credit = new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO");
+                250.20F, "1", "TARJETA DE CREDITO");
 
         Mono<Credit> creditMono = Mono.just(new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO"));
+                250.20F, "1", "TARJETA DE CREDITO"));
 
         when(creditService.saveCredit(credit)).thenReturn(creditMono);
 
@@ -103,10 +103,10 @@ public class CreditControllerTest {
     void updateCredit(){
 
         Credit credit = new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO");
+                250.20F, "1", "TARJETA DE CREDITO");
 
         Mono<Credit> creditMono = Mono.just(new Credit(1, "3403-3904-3535-3775", 2500F, "20/08/2025",
-                250.20F, "TARJETA DE CREDITO"));
+                250.20F, "1", "TARJETA DE CREDITO"));
 
         when(creditService.updateCredit(credit)).thenReturn(creditMono);
 

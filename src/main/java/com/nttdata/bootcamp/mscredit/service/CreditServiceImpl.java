@@ -48,4 +48,10 @@ public class CreditServiceImpl implements CreditService{
                 .flatMap(credit -> creditRepository.delete(credit).then(Mono.just(credit)));
     }
 
+    @Override
+	public Flux<Credit> getCreditByCustomerId(String id) {
+		return creditRepository.findAll()
+                .filter(credit -> credit.getCustomerId().equals(id));
+	}
+
 }
